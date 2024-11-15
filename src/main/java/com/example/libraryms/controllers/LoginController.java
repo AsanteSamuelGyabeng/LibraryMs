@@ -22,9 +22,8 @@ public class LoginController {
     @FXML
     private Label errorLabel;
 
-    private LoginService loginService = new LoginService(); // Service to handle login logic
+    private LoginService loginService = new LoginService();
 
-    // This method is triggered when the login button is clicked
     @FXML
     public void handleLogin() {
         String username = usernameField.getText();
@@ -46,7 +45,7 @@ public class LoginController {
         }
     }
 
-    // Method to load the dashboard after successful login
+
     private void loadDashboard() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/libraryms/dashboard.fxml"));
@@ -59,7 +58,7 @@ public class LoginController {
         }
     }
 
-    // Method to navigate to the signup page
+
     @FXML
     public void theSignup() {
         try {

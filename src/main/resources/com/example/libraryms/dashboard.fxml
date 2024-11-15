@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600" prefWidth="800" style="-fx-background-color: #1a5276;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryms.controllers.DashboardController" stylesheets="dashboard.css">
+<AnchorPane prefHeight="600" prefWidth="800" style="-fx-background-color: #1a5276;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryms.controllers.DashboardController" >
     <!-- Side Panel -->
     <VBox alignment="TOP_LEFT" prefHeight="566.0" prefWidth="200" spacing="10" style="-fx-background-color: #154360;">
         <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="251.0" style="-fx-padding: 10; -fx-font-size: 18;" text="LMS Dashboard" textAlignment="CENTER" textFill="white">

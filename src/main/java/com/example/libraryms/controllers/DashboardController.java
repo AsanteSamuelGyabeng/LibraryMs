@@ -57,7 +57,6 @@ public class DashboardController {
         // Make the width a percentage of the parent container (responsive width)
         rectangle.widthProperty().bind(mainContent.widthProperty().multiply(widthPercentage)); // 22% of container width
 
-        rectangle.setOnMouseClicked(this::handleDivClick); // Make it clickable
 
         // Create the label for the rectangle
         Label label = new Label(labelText);
@@ -73,69 +72,14 @@ public class DashboardController {
         return stackPane;
     }
 
-    // Handle click on a rectangle/div
-    private void handleDivClick(MouseEvent event) {
-        StackPane clickedDiv = (StackPane) event.getSource();
 
-        // Check if the clicked div is "Books"
-        if (clickedDiv.getChildren().get(1) instanceof Label) {
-            Label clickedLabel = (Label) clickedDiv.getChildren().get(1);
-
-            if (clickedLabel.getText().equals("Books")) {
-                // This is the "Books" section
-                System.out.println("Books section clicked!");
-                showAddBookDialog(); // Call method to show the book add dialog
-            }
-        }
-    }
-
-    private void showAddBookDialog() {
-        // Create a dialog to add a book (e.g., Book Title, Author, ISBN)
-        Dialog<Void> addBookDialog = new Dialog<>();
-        addBookDialog.setTitle("Add Book");
-
-        // Create text fields for the book details
-        TextField titleField = new TextField();
-        titleField.setPromptText("Book Title");
-
-        TextField authorField = new TextField();
-        authorField.setPromptText("Author");
-
-        TextField isbnField = new TextField();
-        isbnField.setPromptText("ISBN");
-
-        // Create the buttons for submitting or cancelling
-        ButtonType saveButtonType = new ButtonType("Save", ButtonBar.ButtonData.OK_DONE);
-        addBookDialog.getDialogPane().getButtonTypes().add(saveButtonType);
-        addBookDialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-
-        // Layout the fields
-        VBox dialogContent = new VBox(10);
-        dialogContent.getChildren().addAll(new Label("Title:"), titleField, new Label("Author:"), authorField, new Label("ISBN:"), isbnField);
-        addBookDialog.getDialogPane().setContent(dialogContent);
-
-        // Set the action when the "Save" button is pressed
-        addBookDialog.setResultConverter(dialogButton -> {
-            if (dialogButton == saveButtonType) {
-                // Save the book to the database
-//                addBookToDatabase(titleField.getText(), authorField.getText(), isbnField.getText());
-//                BookManager book = new BookManager();
-//                book.addBook(titleField.getText(), authorField.getText(), isbnField.getText());
-
-            }
-            return null;
-        });
-
-        // Show the dialog
-        addBookDialog.showAndWait();
-    }
 
 
 
     @FXML
     public void showBooks() {
         // Label
-        Label borrowLabel = new Label("Borrow Records Content");
+        Label borrowLabel = new Label("Library Books");
         borrowLabel.setStyle("-fx-font-size: 20; -fx-padding: 20;");
         borrowLabel.setTextFill(javafx.scene.paint.Color.web("#1a5276"));
 
@@ -184,6 +128,7 @@ public class DashboardController {
         mainContent.getChildren().clear();
         mainContent.getChildren().add(layout);
     }
+
     @FXML
     public void showMembers() {
         Label membersLabel = new Label("Members Content");

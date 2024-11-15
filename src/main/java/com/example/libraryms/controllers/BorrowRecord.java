@@ -17,14 +17,17 @@ public class BorrowRecord {
         this.returnDate = new SimpleStringProperty(returnDate);
     }
 
-    // Getter methods for the properties
+
     public StringProperty idProperty() {
         return id;
     }
 
+
     public StringProperty nameProperty() {
         return name;
     }
+
+
 
     public StringProperty borrowDateProperty() {
         return borrowDate;

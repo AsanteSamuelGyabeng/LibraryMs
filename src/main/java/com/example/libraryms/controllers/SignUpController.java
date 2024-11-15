@@ -28,7 +28,6 @@ public class SignUpController {
 
     private StaffService staffService = new StaffService(); // Create instance of the service class
 
-    // This method is triggered when the sign-up button is clicked
     @FXML
     public void handleSignUp() {
         String fullName = fullNameField.getText();
@@ -37,7 +36,6 @@ public class SignUpController {
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
 
-        // Basic validation
         if (fullName.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             successLabel.setText("All fields are required!");
             return;
